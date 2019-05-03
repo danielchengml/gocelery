@@ -943,7 +943,7 @@ type addIntTask struct {
 }
 
 // ParseKwargs parses named arguments for addIntTask example
-func (a *addIntTask) ParseKwargs(kwargs map[string]interface{}) error {
+func (a *addIntTask) ParseKwargs(kwargs map[string]interface{}, message interface{}) error {
 	kwargA, ok := kwargs["a"]
 	if !ok {
 		return fmt.Errorf("undefined kwarg a")
@@ -966,7 +966,7 @@ func (a *addIntTask) ParseKwargs(kwargs map[string]interface{}) error {
 }
 
 // RunTask executes addIntTask example
-func (a *addIntTask) RunTask() (interface{}, error) {
+func (a *addIntTask) RunTask(message interface{}) (interface{}, error) {
 	result := a.a + a.b
 	return result, nil
 }
@@ -982,7 +982,7 @@ type addStrTask struct {
 	b string
 }
 
-func (a *addStrTask) ParseKwargs(kwargs map[string]interface{}) error {
+func (a *addStrTask) ParseKwargs(kwargs map[string]interface{}, message interface{}) error {
 	kwargA, ok := kwargs["a"]
 	if !ok {
 		return fmt.Errorf("undefined kwarg a")
@@ -1002,7 +1002,7 @@ func (a *addStrTask) ParseKwargs(kwargs map[string]interface{}) error {
 	return nil
 }
 
-func (a *addStrTask) RunTask() (interface{}, error) {
+func (a *addStrTask) RunTask(message interface{}) (interface{}, error) {
 	return a.a + a.b, nil
 }
 
@@ -1017,7 +1017,7 @@ type addStrIntTask struct {
 	b int
 }
 
-func (a *addStrIntTask) ParseKwargs(kwargs map[string]interface{}) error {
+func (a *addStrIntTask) ParseKwargs(kwargs map[string]interface{}, message interface{}) error {
 	kwargA, ok := kwargs["a"]
 	if !ok {
 		return fmt.Errorf("undefined kwarg a")
@@ -1038,7 +1038,7 @@ func (a *addStrIntTask) ParseKwargs(kwargs map[string]interface{}) error {
 	return nil
 }
 
-func (a *addStrIntTask) RunTask() (interface{}, error) {
+func (a *addStrIntTask) RunTask(message interface{}) (interface{}, error) {
 	return a.a + strconv.Itoa(a.b), nil
 }
 
@@ -1053,7 +1053,7 @@ type addFloatTask struct {
 	b float64
 }
 
-func (a *addFloatTask) ParseKwargs(kwargs map[string]interface{}) error {
+func (a *addFloatTask) ParseKwargs(kwargs map[string]interface{}, message interface{}) error {
 	kwargA, ok := kwargs["a"]
 	if !ok {
 		return fmt.Errorf("undefined kwarg a")
@@ -1073,7 +1073,7 @@ func (a *addFloatTask) ParseKwargs(kwargs map[string]interface{}) error {
 	return nil
 }
 
-func (a *addFloatTask) RunTask() (interface{}, error) {
+func (a *addFloatTask) RunTask(message interface{}) (interface{}, error) {
 	return a.a + a.b, nil
 }
 
@@ -1091,7 +1091,7 @@ type addFloat32Task struct {
 	b float32
 }
 
-func (a *addFloat32Task) ParseKwargs(kwargs map[string]interface{}) error {
+func (a *addFloat32Task) ParseKwargs(kwargs map[string]interface{}, message interface{}) error {
 	kwargA, ok := kwargs["a"]
 	if !ok {
 		return fmt.Errorf("undefined kwarg a")
@@ -1111,7 +1111,7 @@ func (a *addFloat32Task) ParseKwargs(kwargs map[string]interface{}) error {
 	return nil
 }
 
-func (a *addFloat32Task) RunTask() (interface{}, error) {
+func (a *addFloat32Task) RunTask(message interface{}) (interface{}, error) {
 	return a.a + a.b, nil
 }
 
@@ -1126,7 +1126,7 @@ type andBoolTask struct {
 	b bool
 }
 
-func (a *andBoolTask) ParseKwargs(kwargs map[string]interface{}) error {
+func (a *andBoolTask) ParseKwargs(kwargs map[string]interface{}, message interface{}) error {
 	kwargA, ok := kwargs["a"]
 	if !ok {
 		return fmt.Errorf("undefined kwarg a")
@@ -1147,7 +1147,7 @@ func (a *andBoolTask) ParseKwargs(kwargs map[string]interface{}) error {
 
 }
 
-func (a *andBoolTask) RunTask() (interface{}, error) {
+func (a *andBoolTask) RunTask(message interface{}) (interface{}, error) {
 	return a.a && a.b, nil
 }
 
@@ -1158,7 +1158,7 @@ type maxArrLenTask struct {
 }
 
 // ParseKwargs parses named arguments for maxArrLenTask
-func (m *maxArrLenTask) ParseKwargs(kwargs map[string]interface{}) error {
+func (m *maxArrLenTask) ParseKwargs(kwargs map[string]interface{}, message interface{}) error {
 	kwargA, ok := kwargs["a"]
 	if !ok {
 		return fmt.Errorf("undefined kwarg a")
@@ -1179,7 +1179,7 @@ func (m *maxArrLenTask) ParseKwargs(kwargs map[string]interface{}) error {
 }
 
 // RunTask returns maximum length of two given arrays from maxArrLenTask struct
-func (m *maxArrLenTask) RunTask() (interface{}, error) {
+func (m *maxArrLenTask) RunTask(message interface{}) (interface{}, error) {
 	if len(m.a) > len(m.b) {
 		return len(m.a), nil
 	}

@@ -118,9 +118,9 @@ func (w *CeleryWorker) GetTask(name string) interface{} {
 
 // RunTask runs celery task
 func (w *CeleryWorker) RunTask(message *TaskMessage) (*ResultMessage, error) {
-
 	// get task
 	task := w.GetTask(message.Task)
+
 	if task == nil {
 		return nil, fmt.Errorf("task %s is not registered", message.Task)
 	}
@@ -128,10 +128,10 @@ func (w *CeleryWorker) RunTask(message *TaskMessage) (*ResultMessage, error) {
 	// convert to task interface
 	taskInterface, ok := task.(CeleryTask)
 	if ok {
-		if err := taskInterface.ParseKwargs(message.Kwargs); err != nil {
+		if err := taskInterface.ParseKwargs(message.Kwargs, message); err != nil {
 			return nil, err
 		}
-		val, err := taskInterface.RunTask()
+		val, err := taskInterface.RunTask(message)
 		if err != nil {
 			return nil, err
 		}

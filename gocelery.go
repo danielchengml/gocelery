@@ -102,10 +102,10 @@ func (cc *CeleryClient) delay(task *TaskMessage) (*AsyncResult, error) {
 type CeleryTask interface {
 
 	// ParseKwargs - define a method to parse kwargs
-	ParseKwargs(map[string]interface{}) error
+	ParseKwargs(map[string]interface{}, interface{}) error
 
 	// RunTask - define a method for execution
-	RunTask() (interface{}, error)
+	RunTask(interface{}) (interface{}, error)
 }
 
 // AsyncResult represents pending result
